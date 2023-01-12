@@ -20,7 +20,7 @@ def create_keyboard():
 def create_InlineKeyboard_inrease_decrease() -> InlineKeyboardMarkup:
     ikb2 = InlineKeyboardMarkup(inline_keyboard=[
         [InlineKeyboardButton(text='Moskow',
-                              callback_data='btn_moskow'),
+                              callback_data='btn_mosсkow'),
          InlineKeyboardButton(text='Tula',
                               callback_data='btn_tula')],
         [InlineKeyboardButton(text='Omsk',
@@ -48,7 +48,7 @@ async def cmd_wether(message: types.Message) -> None:
 
 @dp.callback_query_handler(lambda callback_qerry: callback_qerry.data.startswith('btn'))
 async def inline_keyboard_callback_handler(callback: types.CallbackQuery) -> None:
-    if callback.data == 'btn_moskow':
+    if callback.data == 'btn_mosсkow':
         await callback.message.edit_text(f'Темпиратура воздуха в Москве = {bot_def.wether("Москва")}',
                                          reply_markup=create_InlineKeyboard_inrease_decrease())
     elif callback.data == 'btn_tula':
